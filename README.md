@@ -1,55 +1,220 @@
-# About Writer
+# Enhanced About Writer v2.0
 
-The About Writer is a Python script that adds an "about" statement to the specified files. It is designed to help add metadata information, such as author and timestamp, to source code files. The script supports various file formats and can recursively process files in a specified folder.
+A comprehensive Python script that automatically adds professional "about" statements to source code files across **100+ programming languages and file formats**. Features cross-platform compatibility, intelligent comment handling, and robust error management.
 
-## Features
+## 🎯 Key Features
 
-- Recursively gets all the files in the specified folder with the given extensions.
-- Applies the about statement to all the files in the files_list.
-- Edits the specified file to add the about statement.
+- **Universal Support**: 100+ file formats including all major programming languages, web technologies, configuration files, and documentation formats
+- **Cross-Platform**: Works seamlessly on Windows, macOS, and Linux  
+- **Smart Comment Detection**: Uses appropriate comment styles for each file type
+- **Duplicate Prevention**: Intelligently detects existing about statements
+- **Safe Processing**: Creates automatic backups for large files
+- **Batch Processing**: Recursively processes entire directory trees
+- **Flexible Filtering**: Process specific file types with extension filters
+- **Professional Output**: Clean, consistent about statements with author and timestamp
 
-## Usage
+## 🚀 Quick Start
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/elxecutor/About-Writer.git
+cd About-Writer
+
+# No additional dependencies required - uses Python standard library only!
+```
+
+### Basic Usage
+```bash
+# Process a single file
+python about_comment.py /path/to/file.py "John Doe"
+
+# Process a directory with specific extensions  
+python about_comment.py ./project/ "Jane Smith" -x py,js,html,css
+
+## 📁 Project Structure
 
 ```
-python about_writer.py [-h] [-x EXTS] [-v] path name
+About-Writer/
+├── about_comment.py    # Main script with all functionality
+├── README.md          # This documentation  
+├── LICENSE           # MIT license
+├── .gitignore       # Git ignore patterns
+└── .git/           # Git repository data
 ```
 
-- `path`: The path to the file or folder.
-- `name`: The name to be set as the author of the file.
-- `-x EXTS` (optional): Only modify files with the given extension(s). Separate multiple extensions with a comma (,).
-- `-v` (optional): Show verbose output.
+The codebase is intentionally minimal and self-contained:
+- **Single file deployment** - Everything in one Python script
+- **Zero external dependencies** - Uses only Python standard library  
+- **Clean architecture** - Well-organized, documented, and maintainable code
+- **Professional grade** - Production-ready with comprehensive error handling
 
-**Note:** The script requires Python 3.x to run.
+## 🛠️ Command Line Options
 
-## Examples
+```bash
+python about_comment.py [-h] [-x EXTS] [-v] [-f] path name
+```
 
-- Process a single file:
+| Option | Description |
+|--------|-------------|
+| `path` | Path to file or directory to process |
+| `name` | Author name for about statements |
+| `-x EXTS` | Filter by file extensions (comma-separated) |
+| `-v` | Verbose output with detailed information |
+| `-f` | Force overwrite existing about statements |
+| `-h` | Show help message |
 
-  ```
-  python about_writer.py /path/to/file.py JohnDoe -v
-  ```
+## 📋 Usage Examples
 
-- Process a folder recursively:
+```bash
+# Process single file with verbose output
+python about_comment.py script.py "John Doe" -v
 
-  ```
-  python about_writer.py /path/to/folder/ JohnDoe -x .py,.java -v
-  ```
+# Process web project files  
+python about_comment.py ./webapp/ "Frontend Team" -x html,css,js,ts
 
-## Supported File Formats
+# Process Python project, force overwrite
+python about_comment.py ./my-project/ "Jane Smith" -x py -f -v
 
-The script supports the following file formats:
+# Process current directory, all supported files
+python about_comment.py . "Developer" -v
+```
 
-- Python (.py)
-- Java (.java)
-- C (.c)
-- PHP (.php)
-- HTML (.html)
-- JSON (.json)
-- CSS (.css)
-- JavaScript (.js)
-- Perl (.pl)
-- Shell Script (.sh)
-- C++ (.cpp)
-- C# (.cs)
-- R (.r)
-- Text (.txt)
+# Force overwrite existing about statements
+python about_comment.py ./src/ "Team Lead" -f
+```
+
+## 🗂️ Supported File Formats
+
+### Programming Languages
+- **C/C++**: `.c`, `.cpp`, `.cxx`, `.cc`, `.c++`, `.h`, `.hpp`, `.hxx`
+- **Java**: `.java`
+- **Python**: `.py`, `.pyx`, `.pyi`
+- **JavaScript/TypeScript**: `.js`, `.jsx`, `.ts`, `.tsx`
+- **C#**: `.cs`
+- **PHP**: `.php`
+- **Go**: `.go`
+- **Rust**: `.rs`
+- **Swift**: `.swift`
+- **Kotlin**: `.kt`
+- **Scala**: `.scala`
+- **Dart**: `.dart`
+- **Ruby**: `.rb`
+- **Perl**: `.pl`, `.pm`, `.perl`
+- **R**: `.r`, `.R`
+- **Lua**: `.lua`
+- **MATLAB**: `.m`
+- **Julia**: `.jl`
+- **Crystal**: `.cr`
+- **Nim**: `.nim`
+- **Zig**: `.zig`
+- **D**: `.d`
+- **Ada**: `.ada`, `.adb`, `.ads`
+- **COBOL**: `.cob`, `.cbl`
+- **Fortran**: `.f`, `.f90`, `.f95`, `.f03`, `.f08`
+- **Pascal**: `.pas`, `.pp`, `.dpr`
+- **Visual Basic**: `.vb`, `.vbs`
+
+### Functional Languages
+- **Haskell**: `.hs`, `.lhs`
+- **Elm**: `.elm`
+- **OCaml**: `.ml`, `.mli`
+- **F#**: `.fs`, `.fsx`, `.fsi`
+- **Erlang**: `.erl`, `.hrl`
+- **Elixir**: `.ex`, `.exs`
+
+### Web Technologies
+- **HTML**: `.html`, `.htm`, `.xhtml`
+- **CSS**: `.css`, `.scss`, `.sass`, `.less`
+- **XML**: `.xml`, `.xsl`, `.xslt`, `.svg`
+- **Vue**: `.vue`
+
+### Shell Scripts
+- **Bash**: `.sh`, `.bash`
+- **Zsh**: `.zsh`
+- **Fish**: `.fish`
+- **PowerShell**: `.ps1`, `.psm1`, `.psd1`
+- **Batch**: `.bat`, `.cmd`
+
+### Configuration & Data
+- **JSON**: `.json`, `.jsonc`
+- **YAML**: `.yaml`, `.yml`
+- **TOML**: `.toml`
+- **INI**: `.ini`, `.cfg`, `.conf`
+- **SQL**: `.sql`, `.psql`, `.mysql`, `.sqlite`
+- **CSV**: `.csv`, `.tsv`
+
+### Infrastructure as Code
+- **Terraform**: `.tf`, `.tfvars`
+- **HCL**: `.hcl`
+- **Docker**: `.dockerfile`
+
+### Documentation
+- **Markdown**: `.md`, `.markdown`, `.mdown`
+- **reStructuredText**: `.rst`
+- **LaTeX**: `.tex`, `.latex`, `.bib`
+- **Plain Text**: `.txt`, `.text`, `.log`, `.readme`
+
+### Build Systems
+- **Make**: `.make`, `.mk`
+- **CMake**: `.cmake`
+
+## 🎯 Comment Styles
+
+The script automatically uses the appropriate comment style for each file type:
+
+- **C-style comments**: `/* comment */` for C, Java, JavaScript, etc.
+- **Hash comments**: `# comment` for Python, Shell, YAML, etc.
+- **XML comments**: `<!-- comment -->` for HTML, XML, SVG, etc.
+- **SQL comments**: `-- comment` for SQL files
+- **Percent comments**: `% comment` for LaTeX, MATLAB
+- **And many more...**
+
+## 📊 Output Example
+
+```bash
+$ python about_comment.py ./src/ "John Doe" -x py,js -v
+
+[*] Processing directory: /path/to/src
+[*] Extensions filter: ['py', 'js']
+[*] Author: John Doe
+[*] Force overwrite: False
+--------------------------------------------------
+[*] Added /path/to/src/main.py to processing list
+[*] Added /path/to/src/utils.js to processing list
+[*] Processing 2 files...
+
+===========================================================================
+Processing: /path/to/src/main.py
+===========================================================================
+[*] Reading content of '/path/to/src/main.py'
+[*] Successfully added about statement to '/path/to/src/main.py'
+
+===========================================================================
+Processing: /path/to/src/utils.js
+===========================================================================
+[*] Reading content of '/path/to/src/utils.js'
+[*] Successfully added about statement to '/path/to/src/utils.js'
+
+==================================================
+Processing Complete!
+Processed: 2 files
+Skipped: 0 files
+Errors: 0 files
+==================================================
+```
+
+## ⚠️ Important Notes
+
+- The script creates backups (`.bak` files) for files larger than 10KB before modification
+- Files are processed with UTF-8 encoding
+- Binary files and common build artifacts are automatically excluded
+- The script intelligently handles special file structures (PHP tags, HTML doctypes, Python shebangs, etc.)
+
+## 🤝 Contributing
+
+Feel free to submit issues, feature requests, or pull requests to improve the Enhanced About Writer!
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
